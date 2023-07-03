@@ -7,8 +7,6 @@ abstract public class Duck {
     abstract public void fly();
 
     abstract public void quack();
-
-    abstract public void eat();
 }
 
 class WildDuck extends Duck {
@@ -26,11 +24,6 @@ class WildDuck extends Duck {
     @Override
     public void quack() {
         System.out.println("WildDuck quacking");
-    }
-
-    @Override
-    public void eat() {
-        System.out.println("WildDuck eating");
     }
 }
 
@@ -50,11 +43,6 @@ class CityDuck extends Duck {
     public void quack() {
         System.out.println("CityDuck quacking");
     }
-
-    @Override
-    public void eat() {
-        System.out.println("CityDuck eating");
-    }
 }
 
 class RubberDuck extends Duck {
@@ -72,10 +60,5 @@ class RubberDuck extends Duck {
     @Override
     public void quack() {
         System.out.println("RubberDuck quacking");
-    }
-
-    @Override
-    public void eat() {
-        // No eat behavior for Rubber Duck
     }
 }
