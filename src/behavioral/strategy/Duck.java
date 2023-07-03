@@ -56,3 +56,26 @@ class CityDuck extends Duck {
         System.out.println("CityDuck eating");
     }
 }
+
+class RubberDuck extends Duck {
+
+    @Override
+    public void display() {
+        System.out.println("Displaying RubberDuck");
+    }
+
+    @Override
+    public void fly() {
+        // No fly behavior for Rubber Duck
+    }
+
+    @Override
+    public void quack() {
+        System.out.println("RubberDuck quacking");
+    }
+
+    @Override
+    public void eat() {
+        // No eat behavior for Rubber Duck
+    }
+}
