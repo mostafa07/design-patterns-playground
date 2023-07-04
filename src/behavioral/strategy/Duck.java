@@ -2,63 +2,62 @@ package behavioral.strategy;
 
 abstract public class Duck {
 
-    abstract public void display();
+    private final DisplayStrategy displayStrategy;
+    private final FlyStrategy flyStrategy;
+    private final QuackStrategy quackStrategy;
 
-    abstract public void fly();
+    public Duck(DisplayStrategy displayStrategy, FlyStrategy flyStrategy, QuackStrategy quackStrategy) {
+        this.displayStrategy = displayStrategy;
+        this.flyStrategy = flyStrategy;
+        this.quackStrategy = quackStrategy;
+    }
 
-    abstract public void quack();
+
+    public void display() {
+        this.displayStrategy.display();
+    }
+
+    public void fly() {
+        this.flyStrategy.fly();
+    }
+
+    public void quack() {
+        this.quackStrategy.quack();
+    }
 }
 
 class WildDuck extends Duck {
 
-    @Override
-    public void display() {
-        System.out.println("Displaying WildDuck");
-    }
-
-    @Override
-    public void fly() {
-        System.out.println("WildDuck flying");
-    }
-
-    @Override
-    public void quack() {
-        System.out.println("WildDuck quacking");
+    public WildDuck() {
+        super(new NormalDisplayStrategy(),
+                new FlyWithWingsStrategy(),
+                new LoudQuackStrategy());
     }
 }
 
 class CityDuck extends Duck {
 
-    @Override
-    public void display() {
-        System.out.println("Displaying CityDuck");
-    }
-
-    @Override
-    public void fly() {
-        System.out.println("CityDuck flying");
-    }
-
-    @Override
-    public void quack() {
-        System.out.println("CityDuck quacking");
+    public CityDuck() {
+        super(new NormalDisplayStrategy(),
+                new FlyWithWingsStrategy(),
+                new LowQuackStrategy());
     }
 }
 
 class RubberDuck extends Duck {
 
-    @Override
-    public void display() {
-        System.out.println("Displaying RubberDuck");
+    public RubberDuck() {
+        super(new NormalDisplayStrategy(),
+                new NoFlyStrategy(),
+                new NoQuackStrategy());
     }
+}
 
-    @Override
-    public void fly() {
-        // No fly behavior for Rubber Duck
-    }
+class SuperHeroDuck extends Duck {
 
-    @Override
-    public void quack() {
-        System.out.println("RubberDuck quacking");
+    public SuperHeroDuck() {
+        super(new NormalDisplayStrategy(),
+                new FlyWithJetEngineStrategy(),
+                new LoudQuackStrategy());
     }
 }
